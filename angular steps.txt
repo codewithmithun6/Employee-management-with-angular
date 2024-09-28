@@ -1,0 +1,28 @@
+
+
+ng new angular10-employee-management --no-standalone --routing --ssr=false
+
+- ng g s employee
+– ng g c create-employee
+– ng g c employee-details
+– ng g c employee-list
+-  ng g c update-employee
+
+npm install bootstrap jquery --save
+
+Configure installed Bootstrap & JQuery in an angular.json file:
+
+"styles": [
+  "src/styles.css",
+  "node_modules/bootstrap/dist/css/bootstrap.min.css"
+],
+"scripts": [
+  "node_modules/jquery/dist/jquery.min.js",
+  "node_modules/bootstrap/dist/js/bootstrap.min.js"
+]
+
+
+
+If bootstrap won't work then try to import bootstrap CDN link in style.css like:
+
+@import 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css';

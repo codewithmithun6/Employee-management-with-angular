@@ -1,0 +1,230 @@
+
+<h3>Create Employee</h3>
+<div [hidden]="submitted" style="width: 400px;">
+  <form #employeeForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+    <div class="form-group">
+      <label for="name">First Name</label>
+      <input 
+      type="text" 
+      class="form-control" 
+      id="firstName"
+      required
+      minlength="3" 
+      required [(ngModel)]="employee.firstName" 
+      name="firstName"       
+      #firstName="ngModel" 
+      
+      >
+       <!-- Validation Messages -->
+    <div *ngIf="firstName.invalid && firstName.touched" class="text-danger">
+        <!-- Required field message -->
+        <div *ngIf="firstName.errors?.['required']">
+          First Name is required.
+        </div>
+  
+        <!-- Minimum length validation message -->
+        <div *ngIf="firstName.errors?.['minlength']">
+          First Name must be at least 3 characters long.
+        </div>
+      </div>
+    </div>
+    <!-- --last name -->
+
+    <div class="form-group">
+        <label for="name">Last Name</label>
+        <input 
+        type="text" 
+        class="form-control" 
+        id="lastName"
+        required
+        minlength="3" 
+        required [(ngModel)]="employee.lastName" 
+        name="lastName"       
+        #lastName="ngModel" 
+        
+        >
+         <!-- Validation Messages -->
+      <div *ngIf="lastName.invalid && lastName.touched" class="text-danger">
+          <!-- Required field message -->
+          <div *ngIf="lastName.errors?.['required']">
+            Last Name is required.
+          </div>
+    
+          <!-- Minimum length validation message -->
+          <div *ngIf="lastName.errors?.['minlength']">
+            Last Name must be at least 3 characters long.
+          </div>
+        </div>
+      </div>
+
+    <!-- --email -->
+    <div class="form-group">
+        <label for="emailId">Email Id</label>
+        <input
+          type="email"  
+          class="form-control"
+          id="emailId"
+          required
+          [(ngModel)]="employee.emailId"
+          name="emailId"
+          #emailId="ngModel"  
+        />
+    
+        <!-- Validation Messages -->
+        <div *ngIf="emailId.invalid && emailId.touched" class="text-danger">
+          <!-- Required field message -->
+          <div *ngIf="emailId.errors?.['required']">
+            Email is required.
+          </div>
+    
+          <!-- Invalid email format message -->
+          <div *ngIf="emailId.errors?.['email']">
+            Please enter a valid email address.
+          </div>
+        </div>     
+      </div>
+         <!-- --Mobile -->
+    <div class="form-group">
+        <label for="mobile">Mobile</label>
+        <input
+          type="mobile"  
+          class="form-control"
+          id="mobile"
+          required
+          [(ngModel)]="employee.mobile"
+          name="mobile"
+          #mobile="ngModel"  
+        />
+    
+        <!-- Validation Messages -->
+        <div *ngIf="mobile.invalid && mobile.touched" class="text-danger">
+          <!-- Required field message -->
+          <div *ngIf="mobile.errors?.['required']">
+            Mobile is required.
+          </div>
+    
+          <!-- Invalid mobile format message -->
+          <div *ngIf="mobile.errors?.['mobile']">
+            Please enter a valid mobile number.
+          </div>
+        </div>
+    </div>
+
+         <!-- --designation -->
+         <div class="form-group">
+            <label for="designation">Designation</label>
+            <input
+              type="designation"  
+              class="form-control"
+              id="designation"
+              required
+              [(ngModel)]="employee.designation"
+              name="designation"
+              #designation="ngModel"  
+            />
+        
+            <!-- Validation Messages -->
+            <div *ngIf="designation.invalid && designation.touched" class="text-danger">
+              <!-- Required field message -->
+              <div *ngIf="designation.errors?.['required']">
+                Designation is required.
+              </div>
+        
+              <!-- Invalid designation format message -->
+              <div *ngIf="designation.errors?.['designation']">
+                Please enter a valid Designation.
+              </div>
+            </div>
+        </div>
+
+             <!-- --gender -->
+             <div class="form-group">
+                <label for="gender">Gender</label>
+                <select
+                  class="form-control"
+                  id="gender"
+                  required
+                  [(ngModel)]="employee.gender"
+                  name="gender"
+                  #gender="ngModel"
+                >
+                  <option value="" disabled selected>Select Gender</option> <!-- Default unselected option -->
+                  <option value="MALE">Male</option>
+                  <option value="FEMALE">Female</option>
+                  <option value="OTHER">Other</option>
+                </select>
+              
+                <!-- Validation Messages -->
+                <div *ngIf="gender.invalid && gender.touched" class="text-danger">
+                  <!-- Required field message -->
+                  <div *ngIf="gender.errors?.['required']">
+                    Gender is required.
+                  </div>
+                </div>
+              </div>
+              
+
+         <!-- --dob -->
+         <div class="form-group">
+            <label for="dob">Date of Birth</label>
+            <input
+              type="dob"  
+              class="form-control"
+              id="dob"
+              required
+              [(ngModel)]="employee.dob"
+              name="dob"
+              #dob="ngModel"  
+            />
+        
+            <!-- Validation Messages -->
+            <div *ngIf="dob.invalid && dob.touched" class="text-danger">
+              <!-- Required field message -->
+              <div *ngIf="dob.errors?.['required']">
+                DOB is required.
+              </div>
+        
+              <!-- Invalid dob format message -->
+              <div *ngIf="mobile.errors?.['dob']">
+                Please enter a valid DOB DD-MM-YYYY.
+              </div>
+            </div>
+        </div>
+
+             <!-- --experience -->
+    <div class="form-group">
+        <label for="experience">Experience</label>
+        <input
+          type="experience"  
+          class="form-control"
+          id="experience"
+          required
+          [(ngModel)]="employee.experience"
+          name="experience"
+          #experience="ngModel"  
+        />
+    
+        <!-- Validation Messages -->
+        <div *ngIf="experience.invalid && experience.touched" class="text-danger">
+          <!-- Required field message -->
+          <div *ngIf="experience.errors?.['required']">
+            Experience is required.
+          </div>
+    
+          <!-- Invalid email format message -->
+          <div *ngIf="mobile.errors?.['mobile']">
+            Please enter a valid Experience.
+          </div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-success" [disabled]="employeeForm.invalid">Submit</button>
+  </form>
+</div>
+
+
+<div [hidden]="!submitted">
+  <h4>You submitted successfully!</h4>
+  <button class="btn btn-success" [disabled]="employeeForm.invalid" (click)="newEmployee()">Add</button>
+</div>
+

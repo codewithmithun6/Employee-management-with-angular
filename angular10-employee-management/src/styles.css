@@ -1,0 +1,43 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* You can add global styles to this file, and also import other style files */
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width:100%;
+    height: 40px;
+    background-color: blue;
+    text-align: center;
+    color: white;
+}
+
+  .center-content {
+    text-align: center;
+    margin: 0 auto;
+  }
+  
+  button {
+    margin-top: 20px;
+  }
+
+
+  .table-container {
+    width: 100%;           /* The table will take the full width of the container */
+    overflow-x: auto;       /* Add horizontal scrolling if the table is too wide */
+  }
+  
+  table {
+    width: 100%;            /* The table will stretch to the full width of the container */
+    table-layout: auto;     /* Auto layout adjusts the table size based on content */
+  }
+  
+  th, td {
+    padding: 10px;          /* Adds some padding to the table cells */
+    text-align: left;       /* Aligns text to the left */
+  }
+  
+ 
+  
+
