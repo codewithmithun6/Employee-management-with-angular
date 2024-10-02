@@ -10,10 +10,10 @@
             <th>Lastname</th>
             <th>Email</th>
             <th>Mobile</th>
-            <th>Designation</th>
+            <!-- <th>Designation</th> -->
             <th>Gender</th>
             <th>DOB</th>
-            <th>Exp</th>            
+            <!-- <th>Experience</th>             -->
             <th>Actions</th>
           </tr>
         </thead>
@@ -23,12 +23,13 @@
             <td>{{employee.lastName}}</td>
             <td>{{employee.emailId}}</td>
             <td>{{employee.mobile}}</td>
-            <td>{{employee.designation}}</td>
+            <!-- <td>{{employee.designation}}</td> -->
             <td>{{employee.gender}}</td>
             <td>{{employee.dob}}</td>
-            <td>{{employee.experience}} years</td>
+            <!-- <td>{{employee.experience}} years</td> -->
            
             <td>
+              <!-- <button (click) = "createEmployee()" class = "btn btn-info" style="margin-left: 5px; margin-top: 2px;"> Add</button> -->
                 <button (click) = "updateEmployee(employee.id)" class = "btn btn-primary" style="margin-left: 5px; margin-top: 2px;"> Update</button>
                 <button (click) = "deleteEmployee(employee.id)" class = "btn btn-danger" style="margin-left: 5px;margin-top: 2px;"> Delete</button>
                 <button (click) = "employeeDetails(employee.id)" class = "btn btn-success" style="margin-left: 5px;margin-top: 2px;"> View</button>
@@ -37,5 +38,20 @@
           </tr>
         </tbody>
       </table>
+
+      <!-- Pagination Controls -->
+      <nav *ngIf="totalPages > 1">
+        <ul class="pagination justify-content-center">
+          <li class="page-item" [class.disabled]="currentPage === 0">
+            <a class="page-link" (click)="onPageChange(currentPage - 1)">Previous</a>
+          </li>
+          <li class="page-item" *ngFor="let page of [].constructor(totalPages); let i = index" [class.active]="i === currentPage">
+            <a class="page-link" (click)="onPageChange(i)">{{ i + 1 }}</a>
+          </li>
+          <li class="page-item" [class.disabled]="currentPage === totalPages - 1">
+            <a class="page-link" (click)="onPageChange(currentPage + 1)">Next</a>
+          </li>
+        </ul>
+      </nav>
     </div>
   </div>

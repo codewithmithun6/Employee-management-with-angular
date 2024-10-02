@@ -7,7 +7,17 @@
     <li class="nav-item">
         <a routerLink="add" class="nav-link" routerLinkActive="active">Add Employee</a>
     </li>
+
+    <li>
+      
+        <form class="search-form" (ngSubmit)="onSearch()">
+            <input type="text" [(ngModel)]="searchQuery" placeholder="Search for employee..." name="search" class="search-input">
+            <button type="submit" class="search-button">Search</button>
+        </form>
+    
+    </li>
   </ul>
+ 
 </nav>
 <div class="container">
   <br>

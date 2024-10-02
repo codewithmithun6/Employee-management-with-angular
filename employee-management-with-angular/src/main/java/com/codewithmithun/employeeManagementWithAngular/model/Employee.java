@@ -34,4 +34,7 @@ public class Employee {
     private String dob;
     @Column(name = "years_of_experience")
     private String experience;
+
+    public Employee(Long employeeId) {
+    }
 }

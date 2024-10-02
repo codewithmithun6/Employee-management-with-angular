@@ -1,38 +1,76 @@
+
+<!-- ---------employee Details -->
 <div class="center-content">
-<h2>Employee Details</h2> 
+<h2>Employee Details</h2>
+  <hr/>
 
-<hr/>
-<div *ngIf="employee">
-  <div>
-    <label><b>First Name: </b></label> {{employee.firstName}}
-  </div>
-  <div>
-    <label><b>Last Name: </b></label> {{employee.lastName}}
-  </div>
-  <div>
-    <label><b>Email Id: </b></label> {{employee.emailId}}
-  </div> 
-  <div>
-    <label><b>Mobile: </b></label> {{employee.mobile}}
-  </div>
-  
-  <div>
-    <label><b>Designation: </b></label> {{employee.designation}}
-  </div> 
+  <table *ngIf="employee" class="table table-bordered">
+    <tr>
+      <td><b>First Name:</b></td>
+      <td>{{employee.firstName}}</td>
+    </tr>
+    <tr>
+      <td><b>Last Name:</b></td>
+      <td>{{employee.lastName}}</td>
+    </tr>
+    <tr>
+      <td><b>Email Id:</b></td>
+      <td>{{employee.emailId}}</td>
+    </tr>
+    <tr>
+      <td><b>Mobile:</b></td>
+      <td>{{employee.mobile}}</td>
+    </tr>
+    <tr>
+      <td><b>Designation:</b></td>
+      <td>{{employee.designation}}</td>
+    </tr>
+    <tr>
+      <td><b>Gender:</b></td>
+      <td>{{employee.gender}}</td>
+    </tr>
+    <tr>
+      <td><b>Date of Birth:</b></td>
+      <td>{{employee.dob}}</td>
+    </tr>
+    <tr>
+      <td><b>Experience:</b></td>
+      <td>{{employee.experience}} years</td>
+    </tr>
+  </table>
 
-  <div>
-    <label><b>Gender: </b></label> {{employee.gender}}
-  </div> 
+<!-- ----- address details -->
+<h2 *ngIf="address?.state || address?.city || address?.street || address?.pinCode">Employee Address Details</h2>
 
-  <div>
-    <label><b>Date of Birth: </b></label> {{employee.dob}}
-  </div> 
+<table *ngIf="address?.state || address?.city || address?.street || address?.pinCode" class="table table-bordered">
+  <tr *ngIf="address?.state">
+    <td><b>State:</b></td>
+    <td>{{address.state}}</td>
+  </tr>
+  <tr *ngIf="address?.city">
+    <td><b>City:</b></td>
+    <td>{{address.city}}</td>
+  </tr>
+  <tr *ngIf="address?.street">
+    <td><b>Street:</b></td>
+    <td>{{address.street}}</td>
+  </tr>
+  <tr *ngIf="address?.pinCode">
+    <td><b>PinCode:</b></td>
+    <td>{{address.pinCode}}</td>
+  </tr>
+  <tr *ngIf="address?.country">
+    <td><b>Country:</b></td>
+    <td>{{address.country}}</td>
+  </tr>
+  <tr *ngIf="address?.fullAddress">
+    <td><b>Full Address:</b></td>
+    <td>{{address.fullAddress}}</td>
+  </tr>
+</table>
 
-  <div>
-    <label><b>Experience: </b></label> {{employee.experience}}
-  </div>  
-</div>
-<br>
-<button (click)="list()" class="btn btn-primary">Back to Employee List</button><br>
+
+<button (click)="list()" class="btn btn-secondary">Back to List</button>
+<button (click) = "updateEmployee(employee.id)" class="btn btn-primary" style="margin-left: 5px;">Update Address</button>
 
 </div>

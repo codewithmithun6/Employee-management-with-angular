@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Employee } from './employee';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable({
@@ -29,8 +29,19 @@ export class EmployeeService {
     return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
   }
 
-  getEmployeesList(): Observable<any> {
-    return this.http.get(`${this.baseUrl}`);
+  // getEmployeesList(): Observable<any> {
+  //   return this.http.get(`${this.baseUrl}`);
+  // }
+
+
+
+  getEmployees(page: number, size: number, keyword: string): Observable<any> {
+    let params = new HttpParams()
+      .set('page', page)
+      .set('size', size)
+      .set('keyword', keyword);
+
+    return this.http.get<any>(this.baseUrl, { params });
   }
 
   

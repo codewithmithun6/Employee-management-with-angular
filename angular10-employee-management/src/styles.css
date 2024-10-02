@@ -37,7 +37,68 @@
     padding: 10px;          /* Adds some padding to the table cells */
     text-align: left;       /* Aligns text to the left */
   }
+
+  .search-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    
+    
+}
+
+.search-input {
+    width: 300px;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    font-size: 16px;
+    
+}
+
+.search-input:focus {
+    border-color: #00aaff;
+}
+
+.search-button {
+    padding: 10px 20px;
+    background-color: #00aaff;
+    border: none;
+    margin-left: 10px;
+    margin-top: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+    transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+    background-color: #008ecc;
+}
+
+.pagination {
+  margin-top: 20px;
+}
   
  
+  /* table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  td {
+    padding: 8px;
+    border: 1px solid #ccc;
+  }
+  
+  td:first-child {
+    font-weight: bold;
+  } */
   
 
